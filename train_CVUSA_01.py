@@ -221,7 +221,7 @@ up_root = '/kaggle/input/cvusa-dataset' # path to the CVUSA dataset
 #################
 
 net_pre = SiamFCANet18_VH() ### model init (using weights trained by VH) 
-weight_path = 'weights/FCANET18/init/'
+weight_path = '/kaggle/working/SFCANet_18.pth'
 net_pre.load_state_dict(torch.load(weight_path+'SFCANet_18_VH.pth'))
 
 
