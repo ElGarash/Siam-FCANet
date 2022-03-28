@@ -214,7 +214,7 @@ testList = data.id_test_list
 testIdxList = data.id_test_idx_list
     
 ######################################## data preparation ######################################
-up_root = '.../CVUSA/' # path to the CVUSA dataset
+up_root = '/kaggle/input/cvusa-dataset' # path to the CVUSA dataset
 
 ####################### model assignment #######################
 
