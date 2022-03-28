@@ -389,7 +389,7 @@ for epoch in range(0, 100):
     
 
     ### ranking test
-    if(epoch>0):
+    if(epoch>-1):
         current = RankTest(net, bestRankResult)
         if(current>bestRankResult):
             bestRankResult = current
