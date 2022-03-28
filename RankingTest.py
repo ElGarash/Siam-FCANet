@@ -6,10 +6,10 @@
 import numpy as np
 
 ### vectors import
-query_vecs_path = 'vectors/SFCANet18_query.npy'
+query_vecs_path = '/kaggle/working/SFCANet18_query.npy'
 query_vec = np.load(query_vecs_path)
 
-exam_vecs_path = 'vectors/SFCANet18_ref.npy'
+exam_vecs_path = '/kaggle/working/SFCANet18_ref.npy'
 examing_vec = np.load(exam_vecs_path)
         
 

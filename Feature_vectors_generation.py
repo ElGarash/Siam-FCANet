@@ -202,7 +202,7 @@ up_root = '/kaggle/input/cvusa-dataset/cvusa-localization/'
 
 
 ### vectors restoring path
-save_path = 'vectors/'
+save_path = '/kaggle/working/'
 
 ###########################
 
@@ -264,7 +264,7 @@ def FeatVecGen(net_test, model_name):
         if(i % 8 == 0):
             print(i)
     
-    path = 'vectors/'
+    path = '/kaggle/working/'
     np.save(path + model_name + '_query.npy', query_vec)
     np.save(path + model_name + '_ref.npy', examing_vec)
     print('vec produce done')
