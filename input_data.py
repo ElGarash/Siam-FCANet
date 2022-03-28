@@ -5,7 +5,7 @@ import numpy as np
 ### this InputData file is adapted from the CVM-Net project ###
 class InputData:
 
-    img_root = 'dataset/'
+    img_root = '/kaggle/input/cvusa-dataset/cvusa-localization/'
 
 
     def __init__(self):

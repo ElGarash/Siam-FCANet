@@ -214,14 +214,14 @@ testList = data.id_test_list
 testIdxList = data.id_test_idx_list
     
 ######################################## data preparation ######################################
-up_root = '/kaggle/input/cvusa-dataset' # path to the CVUSA dataset
+up_root = '/kaggle/input/cvusa-dataset/cvusa-localization/' # path to the CVUSA dataset
 
 ####################### model assignment #######################
 
 #################
 
 net_pre = SiamFCANet18_VH() ### model init (using weights trained by VH) 
-weight_path = '/kaggle/working/SFCANet_18.pth'
+weight_path = '/kaggle/working/'
 net_pre.load_state_dict(torch.load(weight_path+'SFCANet_18_VH.pth'))
 
 

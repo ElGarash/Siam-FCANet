@@ -198,7 +198,7 @@ testList = data.id_test_list
 testIdxList = data.id_test_idx_list
     
 #######################
-up_root = 'dataset/'
+up_root = '/kaggle/input/cvusa-dataset/cvusa-localization/'
 
 
 ### vectors restoring path
@@ -278,7 +278,7 @@ model_name = 'SFCANet18'
 net = SiamFCANet18_CVUSA()
 net.cuda()
 
-weight_path = 'weights/FCANET18/'
+weight_path = '/kaggle/working/'
 net.load_state_dict(torch.load(weight_path+'SFCANet_18.pth'))
 
 FeatVecGen(net, model_name)
