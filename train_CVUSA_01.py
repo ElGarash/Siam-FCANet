@@ -251,7 +251,7 @@ save_path = '/kaggle/working/FCANET18/'
 ###########################
 
 if Is_Parallel:
-    mini_batch = 48
+    mini_batch = 12
 else:
     mini_batch = 12  
     
@@ -277,9 +277,9 @@ def RankTest(net_test, best_rank_result):
     my_data = ImageDataForExam(filenames_query, filenames_examing)
                                      
     if Is_Parallel:
-        mini_batch = 24
+        mini_batch = 12
     else:
-        mini_batch = 8
+        mini_batch = 12
         
     testloader = DataLoader(my_data, batch_size=mini_batch, shuffle=False, num_workers=8)
     
