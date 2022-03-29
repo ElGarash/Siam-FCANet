@@ -247,7 +247,7 @@ if Is_Parallel:
 net.cuda()
 
 
-save_path = '/kaggle/working/FCANET18/'
+save_path = '/kaggle/working/'
 ###########################
 
 if Is_Parallel:
