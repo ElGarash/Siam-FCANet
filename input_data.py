@@ -10,24 +10,24 @@ class InputData:
 
     def __init__(self):
 
-        self.train_list = self.img_root + 'splits/train-19zl.csv'
+        # self.train_list = self.img_root + 'splits/train-19zl.csv'
         self.test_list = self.img_root + 'splits/val-19zl.csv'
 
-        print('InputData::__init__: load %s' % self.train_list)
-        self.__cur_id = 0  # for training
-        self.id_list = []
-        self.id_idx_list = []
-        with open(self.train_list, 'r') as file:
-            idx = 0
-            for line in file:
-                data = line.split(',')
-                pano_id = (data[0].split('/')[-1]).split('.')[0]
-                # satellite filename, streetview filename, pano_id
-                self.id_list.append([data[0], data[1], pano_id])
-                self.id_idx_list.append(idx)
-                idx += 1
-        self.data_size = len(self.id_list)
-        print('InputData::__init__: load', self.train_list, ' data_size =', self.data_size)
+        # print('InputData::__init__: load %s' % self.train_list)
+        # self.__cur_id = 0  # for training 
+        # self.id_list = []
+        # self.id_idx_list = []
+        # with open(self.train_list, 'r') as file:
+        #     idx = 0
+        #     for line in file:
+        #         data = line.split(',')
+        #         pano_id = (data[0].split('/')[-1]).split('.')[0]
+        #         # satellite filename, streetview filename, pano_id
+        #         self.id_list.append([data[0], data[1], pano_id])
+        #         self.id_idx_list.append(idx)
+        #         idx += 1
+        # self.data_size = len(self.id_list)
+        # print('InputData::__init__: load', self.train_list, ' data_size =', self.data_size)
 
 
         print('InputData::__init__: load %s' % self.test_list)
