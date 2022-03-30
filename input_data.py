@@ -35,14 +35,15 @@ class InputData:
         self.id_test_list = []
         self.id_test_idx_list = []
         with open(self.test_list, 'r') as file:
-            idx = 0
+            # idx = 0
             for line in file:
                 data = line.split(',')
-                pano_id = (data[0].split('/')[-1]).split('.')[0]
+                # pano_id = (data[0].split('/')[-1]).split('.')[0]
                 # satellite filename, streetview filename, pano_id
-                self.id_test_list.append([data[0], data[1], pano_id])
-                self.id_test_idx_list.append(idx)
-                idx += 1
+                # self.id_test_list.append([data[0], data[1], pano_id])
+                # self.id_test_idx_list.append(idx)
+                self.id_test_list.append(data[0])
+                # idx += 1
         self.test_data_size = len(self.id_test_list)
         print('InputData::__init__: load', self.test_list, ' data_size =', self.test_data_size)
 
