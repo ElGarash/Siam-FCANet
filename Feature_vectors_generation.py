@@ -192,10 +192,11 @@ class ImageDataForExam(Dataset):
 
 ### load data
 data = InputData()
-trainList = data.id_list
-trainIdxList = data.id_idx_list
+# trainList = data.id_list
+# trainIdxList = data.id_idx_list
 testList = data.id_test_list
-testIdxList = data.id_test_idx_list
+print(testList[:5])
+# testIdxList = data.id_test_idx_list
     
 #######################
 up_root = '/kaggle/input/cvusa-dataset/cvusa-localization/'
