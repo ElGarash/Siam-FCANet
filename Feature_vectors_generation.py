@@ -219,14 +219,14 @@ def FeatVecGen(net_test, model_name):
     filenames_query = []
     filenames_examing = []
 
-    # for rawTestList in testList:
-    for aerialImage in testList:
-        # info_query = up_root + rawTestList[1]
-        # filenames_query.append(info_query)
-        # info_examing = up_root + rawTestList[0]
-        info_examing = up_root + aerialImage
-        filenames_examing.append(info_examing)
-    print(filenames_examing[:5])
+    # # for rawTestList in testList:
+    # for aerialImage in testList:
+    #     # info_query = up_root + rawTestList[1]
+    #     # filenames_query.append(info_query)
+    #     # info_examing = up_root + rawTestList[0]
+    #     info_examing = up_root + aerialImage
+    #     filenames_examing.append(info_examing)
+    # print(filenames_examing[:5])
     
     
     my_data = ImageDataForExam(filenames_query, filenames_examing)

@@ -1,6 +1,7 @@
 import cv2
 import random
 import numpy as np
+from glob import glob
 
 ### this InputData file is adapted from the CVM-Net project ###
 class InputData:
@@ -11,8 +12,13 @@ class InputData:
     def __init__(self):
 
         # self.train_list = self.img_root + 'splits/train-19zl.csv'
-        self.test_list = self.img_root + 'splits/val-19zl.csv'
+        # self.test_list = self.img_root + 'splits/val-19zl.csv'
 
+        aerial_images = []
+        for parent_directory in glob('/kaggle/input/aerial-tiles-extraction-0-5000/aerials/*'):
+            directory_images = sorted(glob(parent_directory + '/*'))
+            aerial_images.extend(directory_images)
+        self.id_test_list = aerial_images
         # print('InputData::__init__: load %s' % self.train_list)
         # self.__cur_id = 0  # for training 
         # self.id_list = []
@@ -30,22 +36,22 @@ class InputData:
         # print('InputData::__init__: load', self.train_list, ' data_size =', self.data_size)
 
 
-        print('InputData::__init__: load %s' % self.test_list)
+        # print('InputData::__init__: load %s' % self.test_list)
         self.__cur_test_id = 0  # for training
-        self.id_test_list = []
-        self.id_test_idx_list = []
-        with open(self.test_list, 'r') as file:
-            # idx = 0
-            for line in file:
-                data = line.split(',')
-                # pano_id = (data[0].split('/')[-1]).split('.')[0]
-                # satellite filename, streetview filename, pano_id
-                # self.id_test_list.append([data[0], data[1], pano_id])
-                # self.id_test_idx_list.append(idx)
-                self.id_test_list.append(data[0])
-                # idx += 1
+        # self.id_test_list = []
+        # self.id_test_idx_list = []
+        # with open(self.test_list, 'r') as file:
+        #     # idx = 0
+        #     for line in file:
+        #         data = line.split(',')
+        #         # pano_id = (data[0].split('/')[-1]).split('.')[0]
+        #         # satellite filename, streetview filename, pano_id
+        #         # self.id_test_list.append([data[0], data[1], pano_id])
+        #         # self.id_test_idx_list.append(idx)
+        #         self.id_test_list.append(data[0])
+        #         # idx += 1
         self.test_data_size = len(self.id_test_list)
-        print('InputData::__init__: load', self.test_list, ' data_size =', self.test_data_size)
+        print('Evaluation data size', self.test_data_size)
 
 
 
