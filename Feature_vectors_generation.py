@@ -195,7 +195,7 @@ data = InputData()
 # trainList = data.id_list
 # trainIdxList = data.id_idx_list
 testList = data.id_test_list
-print(testList[:5])
+# print(testList)
 # testIdxList = data.id_test_idx_list
     
 #######################
@@ -216,8 +216,8 @@ def FeatVecGen(net_test, model_name):
 
     net_test.eval()
     
-    filenames_query = []
-    filenames_examing = []
+    filenames_examing = testList[0]
+    filenames_query = testList[1]
 
     # # for rawTestList in testList:
     # for aerialImage in testList:
