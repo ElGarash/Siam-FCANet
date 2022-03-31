@@ -1,7 +1,8 @@
 import cv2
 import random
 import numpy as np
-from os import listdir, path
+from glob import glob
+
 
 ### this InputData file is adapted from the CVM-Net project ###
 class InputData:
@@ -10,44 +11,12 @@ class InputData:
 
 
     def __init__(self):
-        """Return dictionary of aerials path key and tuple of ground dir path, number of taken aerials and number of taken grounds"""
-        grds_root_path = '/kaggle/input'
-        aerials_root_path = '/kaggle/input/aerial-tiles-extraction-0-5000/aerials'
+        aerial_images = glob('/kaggle/input/cvact-small/satview_polish/satview_polish/*')
+        aerial_images_sorted = sorted(aerial_images)
 
-        aerial_dirs = listdir(aerials_root_path)
-        grd_parts = listdir(grds_root_path)
-        grd_parts.remove('aerial-tiles-extraction-0-5000')
-        grd_parts.remove('cvusa-dataset')
-        aerial_files_path = []
-        ground_files_path = []
+        ground_images = glob('/kaggle/input/cvact-small/streetview/streetview/*')
+        ground_images_sorted = sorted(ground_images)
         
-        for grd_part in grd_parts[:3]:
-            part_path = f'{grds_root_path}/{grd_part}/frames'
-            for simple_dir in listdir(part_path): 
-                
-                if simple_dir in aerial_dirs:
-                    aerial_path = path.join(aerials_root_path, simple_dir)
-                    grd_path = path.join(part_path, simple_dir)
-                    aerial_dir = sorted(listdir(aerial_path))
-                    ground_dir = sorted(listdir(grd_path))
-                    num_ground = len(ground_dir)
-                    num_aerial = len(aerial_dir)
-                    
-                    for i in range(num_aerial):
-                        aerial_file_path = path.join(aerial_path, aerial_dir[i])
-                        grd_file_path = [path.join(grd_path, ground_dir[j]) for j in range(i*5, min(i*5+5, num_ground))]
-                        aerial_files_path.append(aerial_file_path)
-                        ground_files_path.append(grd_file_path)
-
-        i = 0
-        while i < len(ground_files_path):
-            if len(ground_files_path[i]) < 1:
-                del ground_files_path[i]
-                del aerial_files_path[i]
-            else:
-                i +=1
-        
-        ground_files_path = list(map(lambda groundArray: groundArray[0], ground_files_path))
 
         # self.train_list = self.img_root + 'splits/train-19zl.csv'
         # self.test_list = self.img_root + 'splits/val-19zl.csv'
@@ -71,7 +40,7 @@ class InputData:
 
         # print('InputData::__init__: load %s' % self.test_list)
         # self.__cur_test_id = 0  # for training
-        self.id_test_list = (aerial_files_path, ground_files_path)
+        self.id_test_list = (aerial_images_sorted[:-1], ground_images_sorted)
         # self.id_test_idx_list = []
         # with open(self.test_list, 'r') as file:
             # idx = 0
