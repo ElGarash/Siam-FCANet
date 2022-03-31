@@ -162,9 +162,11 @@ class ImageDataForExam(Dataset):
         ### for query data
         data_names_grd = os.path.join('', self.image_names_grd[idx])
         image_grd = Image.open(data_names_grd)
-        
+
         ### adjust with torchvision
-        trans_img_G = transforms.ToTensor()(image_grd)
+        trans_img_G = transforms.Resize([224, 1232], interpolation=Image.ANTIALIAS)(image_grd)
+        trans_img_G = transforms.ToTensor()(trans_img_G)
+
         # torchvision is R G B and opencv is B G R
         trans_img_G[0] = trans_img_G[0]*255.0 - 123.6  # Red
         trans_img_G[1] = trans_img_G[1]*255.0 - 116.779  # Green

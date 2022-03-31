@@ -21,7 +21,7 @@ class InputData:
         aerial_files_path = []
         ground_files_path = []
         
-        for grd_part in grd_parts:
+        for grd_part in grd_parts[:3]:
             part_path = f'{grds_root_path}/{grd_part}/frames'
             for simple_dir in listdir(part_path): 
                 
