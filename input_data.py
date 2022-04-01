@@ -40,7 +40,7 @@ class InputData:
 
         # print('InputData::__init__: load %s' % self.test_list)
         # self.__cur_test_id = 0  # for training
-        self.id_test_list = (aerial_images_sorted[:-1], ground_images_sorted)
+        self.id_test_list = (aerial_images_sorted[:35000], ground_images_sorted[:35000])
         # self.id_test_idx_list = []
         # with open(self.test_list, 'r') as file:
             # idx = 0

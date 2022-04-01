@@ -27,6 +27,10 @@ dist_E = (examing_vec**2).sum(1).reshape(N_data,1)
 dist_Q = (query_vec**2).sum(1).reshape(N_data,1).T
 
 dist_array = dist_E + dist_Q - 2 * np.matmul(examing_vec, query_vec.T)
+del dist_E
+del dist_Q
+del examing_vec
+del query_vec
 
 
 ### ranking and comparing
