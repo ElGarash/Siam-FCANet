@@ -49,6 +49,14 @@ class ImageDataForExam(Dataset):
 
 #################
 
+DESCRIPTORS_DIRECTORY = '/kaggle/working/descriptors/SFCANet18'
+
+
+if os.path.exists(f"{DESCRIPTORS_DIRECTORY}/satellite_descriptors.pkl"):
+        print("Satellite descriptor already exists on the file system.")
+        exit(0)
+
+
 ### load data
 data = InputData()
 testList = data.id_test_list
@@ -109,8 +117,6 @@ def FeatVecGen(net_test, model_name):
         
         if(i % 8 == 0):
             print(i)
-    
-    DESCRIPTORS_DIRECTORY = '/kaggle/working/descriptors/SFCANet18'
 
     if not os.path.exists(DESCRIPTORS_DIRECTORY):
             os.makedirs(DESCRIPTORS_DIRECTORY)
